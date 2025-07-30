@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', Arial, sans-serif; 
+            line-height: 1.6;
+            color:white; 
+            background-color: black; 
+        }
+        nav {
+            background-color:green; 
+            padding: 1rem 0; 
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+            top: 0;
+            z-index: 1000; 
+        }
+
+        nav a {
+            color: black; 
+            margin: 0 20px; 
+            text-decoration: none;
+            font-weight: 400; 
+            transition: color 0.3s ease; 
+        }
+        nav a:hover {
+            color:white;
+        }
+        section {
+            padding: 60px 20px; 
+            color: white; 
+            min-height: calc(100vh - 80px); 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: justify; 
+        }
+        #home {
+            background-color: #080808;
+            color: #fcfbfb;
+            display: block; 
+            text-align: left; 
+            padding-left: 10%; 
+            padding-right: 10%;
+        }
+        #about-me { background-color: #000000; color: #fffefe; }
+        #education { background-color: #030303; color: #ffffff; }
+        #skills { background-color: #000000; color: #ffffff; }
+        #certifications { background-color: #020202; color: #ffffff; }
+        #projects { background-color: #000000; color: #ffffff; }
+        #contact { background-color: #000000; color: #ffffff; }
+        h1 {
+            color: #ffffff; 
+            margin-bottom: 20px;
+            font-weight: 700;
+            font-size: 2.5em; 
+        }
+        h1 span {
+            color: green; 
+        }
+        h3 {
+            color: white;
+            margin-top: 25px;
+            font-size: 1.5em;
+        }
+        p {
+            max-width: 800px; 
+            margin: 0 auto 20px auto;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+        #home p {
+            max-width: none; 
+            margin: 0;
+        }
+        ul {
+            list-style: none; 
+            padding: 0;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        ul li {
+            background-color: #000000; 
+            margin-bottom: 10px;
+            padding: 15px 25px;
+            border-radius: 8px; 
+            box-shadow: 0 2px 5px white; 
+            text-align: left;
+            transition: transform 0.2s ease; 
+        }
+        ul li:hover {
+            transform: translateY(-3px); 
+        }
+        ul li strong {
+            color: #ffffff; 
+        }
+        img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover; 
+            border: 4px solid #000000; 
+            box-shadow: 0 5px 15px green; 
+        }
+        #home img {
+            float: left; 
+            margin-right: 40px; 
+            margin-bottom: 20px; 
+        }
+        #home::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left; 
+            padding: 30px;
+            background-color: #000000;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px green;
+        }
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+        .form-row input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            box-sizing: border-box; 
+            transition: border-color 0.3s ease;
+        }
+        input:focus,
+        textarea:focus {
+            border-color: #000000;
+            outline: none; 
+            box-shadow: 0 0 0 2px green; 
+        }
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+            margin-bottom: 20px;
+        }
+        button[type="submit"] {
+            display: block; 
+            width: 100%; 
+            padding: 15px;
+            background-color: #000000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        button[type="submit"]:hover {
+            background-color: #000000; 
+            transform: translateY(-2px);
+        }
+        footer {
+            background-color: #000000; 
+            color: #ecf0f1;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9em;
+        }
+        footer a {
+            color: green; 
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: #ecf0f1;
+        }
+        @media (max-width: 768px) {
+            nav a {
+                margin: 0 10px;
+                font-size: 0.9em;
+            }
+            section {
+                padding: 40px 15px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            p {
+                font-size: 1em;
+            }
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            .form-row input {
+                margin-bottom: 15px; 
+            }
+            #home {
+                text-align: center; 
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            #home img {
+                float:right;
+                display: block; 
+                margin: 0 auto 20px auto; 
+            }
+            #home h1, #home p {
+                text-align: center;
+            }
+        }
+        @media (max-width: 480px) {
+            nav {
+                padding: 0.7rem 0;
+            }
+            nav a {
+                display: block; 
+                margin: 8px 0;
+            }
+            img {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+    </style>
+    <body>
+         <nav>
+        <a href="#home">Home</a>
+        <a href="#about-me">About Me</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="home">
+        <img src="pradeep.jpg.jpg" alt="Pradeep's photo" />
+        <h1>Hello, I am <span style="color: green;">Pradeep</span></h1>
+        <p>Welcome to my professional portfolio website! I am an Electronics Engineering student with a passion for innovation in embedded systems, IoT, and circuit design. Explore my journey, projects, and skills below.</p>
+        </section>
+
+    <section id="about-me">
+        <h1><span style="color: green;">About Me</span></h1>
+        <p>
+            I am an enthusiastic Electronics Engineering student with a robust foundation in circuit design, IoT applications, and embedded systems. My passion lies in PCB design and emerging technologies. I am proficient in Embedded C and experienced in microcontroller interfacing with platforms like ESP32 and Arduino. I have a proven track record of bringing real-time projects to fruition and possess foundational knowledge in Python and C programming. I am actively seeking dynamic opportunities in the fields of VLSI, Embedded Systems, and IoT to apply my skills and contribute to innovative solutions.
+        </p>
+    </section>
+
+    <section id="education">
+        <h1><span style="color: green;">Education</span></h1>
+        <ul>
+            <li>
+                <strong>Bachelor of Engineering in Electronics and Communication</strong><br>
+                Dhirajlal Gandhi College of Technology<br>
+                <em>Expected Graduation: May 2026</em>
+            </li>
+            <li>
+                <strong>Diploma in Electronics and Communication Engineering</strong><br>
+                Martam Nelli Polytechnic College<br>
+                <em>Graduated: April 2023</em>
+            </li>
+            <li>
+                <strong>SSLC</strong><br>
+                Sri Vijay Vidyalaya Mtr.Hr.Sec School<br>
+                <em>Graduated: April 2020</em>
+            </li>
+        </ul>
+    </section>
+
+    <section id="skills">
+        <h1><span style="color: green;">Skills</span></h1>
+        <ul>
+            <li><strong>Programming Languages:</strong> Embedded C (ESP32, Arduino), Python, C</li>
+            <li><strong>Hardware & Design Tools:</strong> Basic Electronics, PCB Design, Microcontroller Interfacing, CST Studio (Antenna Design)</li>
+            <li><strong>Concepts & Methodologies:</strong> Embedded Systems, IoT Applications, Real-time Project Development</li>
+            <li><strong>Other Tools:</strong> Git, VS Code, Proteus, Altium Designer</li>
+        </ul>
+    </section>
+
+    <section id="certifications">
+        <h1><span style="color: green;">Certification & Workshop</span></h1>
+        <ul>
+            <li>
+                <strong>Internship: Computer Hardware repair</strong><br>
+            </li>
+            <li>
+                <strong>Workshop: DFT of VLSI design</strong><br>
+            </li>
+            </ul>
+    </section>
+
+    <section id="projects">
+       <h1><span style="color: green;">Projects</span></h1>
+        <ol>
+            <li>
+                <h3>mine workers health monitoring system</h3>
+                </li>
+            <li>
+                <h3>IOT Smart Energy meter</h3>
+                </li>
+            <li>
+                <h3>IOT on Fire Extinguisher</h3>
+            </li>
+            </ol>
+    </section>
+
+    <section id="contact">
+        <h1><span style="color: green;">Contact Me</span></h1>
+        <p>I'm always open to discussing new projects, collaborations, or job opportunities. Feel free to reach out!</p>
+        <form class="contact-form">
+            <div class="form-row">
+                <input type="text" id="fullName" placeholder="Full Name" required>
+                <input type="email" id="emailAddress" placeholder="Email Address" required>
+            </div>
+            <div class="form-row">
+                <input type="tel" id="mobileNumber" placeholder="Mobile Number (Optional)">
+                <input type="text" id="subject" placeholder="Subject">
+            </div>
+            <textarea id="yourMessage" rows="6" placeholder="Your Message"></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>Connect with me:</p>
+        <a href="#" target="_blank" aria-label="LinkedIn Profile">LinkedIn</a> |
+        <a href="#" target="_blank" aria-label="GitHub Profile">GitHub</a>
+        <p>&copy; 2025 Pradeep S. All rights reserved.</p>
+        <p>Email: pradeepsathiymoorthi@gmail.com</p>
+    </footer>
+
+</body>
+</html>
